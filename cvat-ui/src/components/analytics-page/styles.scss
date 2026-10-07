@@ -1,0 +1,299 @@
+// Copyright (C) CVAT.ai Corporation
+//
+// SPDX-License-Identifier: MIT
+
+@import 'base';
+
+.cvat-analytics-page {
+    padding-top: $grid-unit-size * 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    .cvat-analytics-top-bar {
+        overflow-y: visible;
+        min-height: fit-content;
+        padding: 0 $grid-unit-size * 2;
+        margin-bottom: $grid-unit-size;
+
+        .cvat-analytics-top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: $grid-unit-size * 1.5;
+
+            .cvat-analytics-title-group {
+                display: flex;
+                align-items: center;
+                gap: $grid-unit-size * 1.5;
+
+                .cvat-title {
+                    font-weight: 500;
+                    font-size: 21px;
+                    color: $text-color;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+
+                .cvat-analytics-mobile-badge {
+                    display: none;
+                }
+            }
+
+            .cvat-analytics-controls {
+                display: flex;
+                align-items: center;
+                gap: $grid-unit-size * 1.5;
+                flex-wrap: wrap;
+
+                .cvat-analytics-task-select {
+                    min-width: 220px;
+                    max-width: 340px;
+                }
+
+                .cvat-analytics-status-group {
+                    display: flex;
+                    align-items: center;
+                    gap: $grid-unit-size;
+
+                    .cvat-analytics-desktop-badge {
+                        display: inline-flex;
+                        align-items: center;
+                    }
+
+                    .cvat-analytics-last-updated {
+                        font-size: 12px;
+                        color: $text-color-secondary;
+                        white-space: nowrap;
+                    }
+
+                    .cvat-analytics-reconnect-btn {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .cvat-analytics-content {
+        flex-grow: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+        padding: $grid-unit-size * 1.5 $grid-unit-size * 2 $grid-unit-size * 3;
+
+        .cvat-analytics-stats-row {
+            margin-bottom: $grid-unit-size * 2;
+
+            .cvat-analytics-stat-card {
+                border: 1px solid $border-color-1;
+                border-radius: $border-radius-base;
+                background: $background-color-1;
+                transition: box-shadow $box-shadow-transition;
+
+                &:hover {
+                    box-shadow: $box-shadow-base;
+                }
+
+                .ant-card-body {
+                    padding: $grid-unit-size * 2;
+                }
+
+                .ant-statistic-title {
+                    font-size: 13px;
+                    color: $text-color-secondary;
+                    margin-bottom: $grid-unit-size * 0.5;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .ant-statistic-content {
+                    color: $text-color;
+                    font-size: 22px;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .ant-statistic-content-prefix {
+                    color: $slider-color;
+                    margin-right: $grid-unit-size;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .cvat-analytics-chart-card {
+            border: 1px solid $border-color-1;
+            border-radius: $border-radius-base;
+            background: $background-color-1;
+            margin-bottom: $grid-unit-size * 2;
+            transition: box-shadow $box-shadow-transition;
+
+            &:hover {
+                box-shadow: $box-shadow-base;
+            }
+
+            .ant-card-head {
+                border-bottom: 1px solid $border-color-1;
+                min-height: 44px;
+                padding: 0 $grid-unit-size * 2;
+                font-weight: 500;
+                font-size: 14px;
+                color: $text-color;
+
+                .ant-card-head-title {
+                    padding: $grid-unit-size 0;
+                }
+            }
+
+            .ant-card-body {
+                padding: $grid-unit-size * 2;
+            }
+
+            .chart-container {
+                position: relative;
+                width: 100%;
+                height: 350px;
+                min-height: 250px;
+            }
+        }
+
+        .cvat-analytics-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: $grid-unit-size * 30;
+        }
+    }
+}
+
+/* Tablet (Medium: 768px - 991px) */
+@media (max-width: 991px) {
+    .cvat-analytics-page {
+        .cvat-analytics-content {
+            padding: $grid-unit-size;
+
+            .cvat-analytics-chart-card {
+                .chart-container {
+                    height: 310px;
+                }
+            }
+        }
+    }
+}
+
+/* Small Tablet / Large Mobile (576px - 767px) */
+@media (max-width: 767px) {
+    .cvat-analytics-page {
+        .cvat-analytics-content {
+            .cvat-analytics-chart-card {
+                .chart-container {
+                    height: 290px;
+                }
+            }
+        }
+    }
+}
+
+/* Mobile Phones (under 576px) */
+@media (max-width: 575px) {
+    .cvat-analytics-page {
+        padding-top: $grid-unit-size;
+
+        .cvat-analytics-top-bar {
+            padding: 0 $grid-unit-size;
+
+            .cvat-analytics-top-bar-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: $grid-unit-size;
+
+                .cvat-analytics-title-group {
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .cvat-title {
+                        font-size: 18px;
+                    }
+
+                    .cvat-analytics-mobile-badge {
+                        display: inline-flex;
+                    }
+                }
+
+                .cvat-analytics-controls {
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: $grid-unit-size;
+
+                    .cvat-analytics-task-select {
+                        min-width: 100%;
+                        width: 100%;
+                    }
+
+                    .cvat-analytics-status-group {
+                        justify-content: space-between;
+                        width: 100%;
+
+                        .cvat-analytics-desktop-badge {
+                            display: none;
+                        }
+
+                        .cvat-analytics-last-updated {
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cvat-analytics-content {
+            padding: $grid-unit-size * 0.75;
+
+            .cvat-analytics-stats-row {
+                margin-bottom: $grid-unit-size;
+
+                .cvat-analytics-stat-card {
+                    .ant-card-body {
+                        padding: $grid-unit-size * 1.5;
+                    }
+
+                    .ant-statistic-title {
+                        font-size: 12px;
+                    }
+
+                    .ant-statistic-content {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .cvat-analytics-chart-card {
+                margin-bottom: $grid-unit-size;
+
+                .ant-card-head {
+                    min-height: 38px;
+                    padding: 0 $grid-unit-size * 1.5;
+                    font-size: 13px;
+                }
+
+                .ant-card-body {
+                    padding: $grid-unit-size;
+                }
+
+                .chart-container {
+                    height: 250px;
+                    min-height: 200px;
+                }
+            }
+        }
+    }
+}

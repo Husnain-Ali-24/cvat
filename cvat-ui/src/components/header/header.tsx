@@ -476,19 +476,18 @@ function HeaderComponent(props: Props): JSX.Element {
                 >
                     Models
                 </Button>
-                {isAnalyticsPluginActive && user.hasAnalyticsAccess ? (
-                    <Button
-                        className={getButtonClassName('analytics', false)}
-                        type='link'
-                        href='/analytics'
-                        onClick={(event: React.MouseEvent): void => {
-                            event.preventDefault();
-                            window.open('/analytics', '_blank');
-                        }}
-                    >
-                        Analytics
-                    </Button>
-                ) : null}
+                <Button
+                    className={getButtonClassName('test-analytics')}
+                    type='link'
+                    value='test-analytics'
+                    href='/test-analytics'
+                    onClick={(event: React.MouseEvent): void => {
+                        event.preventDefault();
+                        history.push('/test-analytics');
+                    }}
+                >
+                    Real-Time Analytics
+                </Button>
             </div>
             <div className='cvat-right-header'>
                 <CVATTooltip overlay='Click to open repository'>
